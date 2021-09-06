@@ -12,15 +12,15 @@
 
 | Stap        | Taak                                           | Verwachte tijdsduur | Status |
 | ----------- | ---------------------------------------------- | ------------------- | ------ |
-| Planning    | Planning maken                                 | 00:30 u             | Bezig  |
-| Ontwerpen   | Mockup van BNB-site maken                      |                     |        |
-| ...         | Styling van elementen bepalen                  |                     |        |
-| Realiseren  | Bestanden aanmaken                             |                     |        |
+| Planning    | Planning maken                                 | 00:30 u             | Af     |
+| Ontwerpen   | Mockup van BNB-site maken                      | 01:00 u             | Bezig  |
+| ...         | Styling van elementen bepalen                  | 00:25 u             | Bezig  |
+| Realiseren  | Bestanden aanmaken                             | 00:10 u             | Bezig  |
+| ...         | Website maken                                  | 10:00 u             | Bezig  |
+| Testen      | Applicatie testen                              | 45min-1u            | Bezig  |
 | ...         |                                                |                     |        |
-| Testen      | Applicatie testen                              |                     |        |
+| Verbeteren  | Problemen gevonden tijdens het testen oplossen | 00:30 u             | Bezig  |
 | ...         |                                                |                     |        |
-| Verbeteren  | Problemen gevonden tijdens het testen oplossen |                     |        |
-| ...         |                                                |                     |        |
-| Presenteren |                                                |                     |        |
-| ...         |                                                |                     |        |
-| Refecteren  | Reflectiedocument schrijven                    |                     |        |
+| Presenteren | Laten zien aan vrienden voor feedback          | 00:15 u             | Bezig  |
+| ...         | Laten zien aan docent                          | 00:15 u             | Bezig  |
+| Refecteren  | Reflectiedocument schrijven                    | 00:20 u             | Bezig  |
