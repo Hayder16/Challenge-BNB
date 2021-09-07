@@ -16,13 +16,13 @@ if (isset($_GET['filter_submit'])) {
     if ($_GET['faciliteiten'] == "ligbad") { // Als ligbad is geselecteerd filter dan de zoekresultaten
         $bathIsChecked = true;
 
-        $sql = "SELECT * FROM homes"; // query die zoekt of er een BAD aanwezig is.
+        $sql = "SELECT * FROM ligbad"; // query die zoekt of er een BAD aanwezig is.
     }
 
     if ($_GET['faciliteiten'] == "zwembad") {
         $poolIsChecked = true;
 
-        $sql = "SELECT * FROM homes"; // query die zoekt of er een ZWEMBAD aanwezig is.
+        $sql = "SELECT * FROM zwembad"; // query die zoekt of er een ZWEMBAD aanwezig is.
     }
 }
 
@@ -40,17 +40,20 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BNB challenge</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <link href="css/index.css" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
-        <h1>Quattro Cottage Rental</h1>
+        <div class="banner">
+        <div class="naam"><h1>Demi's Cottage Rentals</h1></div>
+        </div>
     </header>
     <main>
         <div class="left">
@@ -152,12 +155,16 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
     <script>
         // De verschillende markers moeten geplaatst worden. Vul de longitudes en latitudes uit de database hierin
         var coordinates = [
-
+            [52.44902, 4.61001],
+            [52.99864, 6.64928],
+            [52.30340, 6.36800],
+            [50.89720, 5.90979]
 
         ];
 
         var bubbleTexts = [
-
+            '<h3>Ijmuiden Cottage</h3><img src="../starterscode/images/Ijmuiden.jpg" alt="Ijmuiden Cottage">', 
+            '<h3>Assen Cottage</h3><img src="../starterscode/images/Assen.jpg">',
 
         ];
     </script>
