@@ -17,13 +17,13 @@ if (isset($_GET['filter_submit'])) {
         $bathIsChecked = true;
 
         $sql = "SELECT * FROM ligbad"; // query die zoekt of er een BAD aanwezig is.
-    }
+    } 
 
     if ($_GET['faciliteiten'] == "zwembad") {
         $poolIsChecked = true;
 
         $sql = "SELECT * FROM zwembad"; // query die zoekt of er een ZWEMBAD aanwezig is.
-    }
+    } 
 }
 
 
@@ -40,7 +40,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNB challenge</title>
+    <title>Demi's House Rentals</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <!-- Make sure you put this AFTER Leaflet's CSS -->
@@ -52,7 +52,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
 <body>
     <header>
         <div class="banner">
-        <div class="naam"><h1>Demi's Cottage Rentals</h1></div>
+        <div class="naam"><h1>Demi's House Rentals</h1></div>
         </div>
     </header>
     <main>
@@ -95,7 +95,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
             <div class="filter-box">
                 <form class="filter-form">
                     <div class="form-control">
-                        <a href="index.php">Reset Filters</a>
+                        <a class="bana" href="index.php">Reset Filters</a>
                     </div>
                     <div class="form-control">
                         <label for="ligbad">Ligbad</label>
@@ -105,7 +105,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                         <label for="zwembad">Zwembad</label>
                         <input type="radio" id="zwembad" name="faciliteiten" value="zwembad" <?php if ($poolIsChecked) echo 'checked' ?>>
                     </div>
-                    <button type="submit" name="filter_submit">Filter</button>
+                    <button class="hihi" type="submit" name="filter_submit">Filter</button>
                 </form>
                 <div class="homes-box">
                     <?php if (isset($database_gegevens) && $database_gegevens != null) : ?>
@@ -147,7 +147,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
     </main>
     <footer>
         <div></div>
-        <div>copyright Quattro Rentals BV.</div>
+        <div><h3>copyright Demi's House Rentals BV.</h3></div>
         <div></div>
 
     </footer>
@@ -164,7 +164,9 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
 
         var bubbleTexts = [
             '<h3>Ijmuiden Cottage</h3><img src="../starterscode/images/Ijmuiden.jpg" alt="Ijmuiden Cottage">', 
-            '<h3>Assen Cottage</h3><img src="../starterscode/images/Assen.jpg">',
+            '<h3>Assen Bungalow</h3><img src="../starterscode/images/Assen.jpg">', 
+            '<h3>Espelo Entree</h3><img src="../starterscode/images/Espelo.jpg">',
+            '<h3>Weustenrade Woning</h3><img src="../starterscode/images/Weustenrade.jpg">'
 
         ];
     </script>

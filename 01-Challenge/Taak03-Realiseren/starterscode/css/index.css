@@ -4,10 +4,42 @@
     
 }
 
+.hihi {
+    background: #E76F51;
+    text-align: center;
+    border: 3px solid transparent;
+    border-radius: 25px;
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 2px 4px black;
+    padding: 18px;
+}
+
+.hihi:hover {
+    background: #F4A261;
+}
+
+.bana:link, .bana:visited {
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 99px;
+    background: #E76F51;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid transparent;
+    border-radius: 25px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px black;
+}
+
+.bana:hover {
+    background: #F4A261;
+}
 
 
 h1 {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     margin: auto;
     width: 50%;

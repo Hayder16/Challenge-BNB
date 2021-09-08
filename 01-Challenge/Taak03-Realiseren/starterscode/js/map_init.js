@@ -17,7 +17,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 // plak de code in het object hierboven
 
 var myIcon = L.icon({
-    iconUrl: 'roc.jpg',
+    iconUrl: '../starterscode/images/roc.jpg',
     iconSize: [24, 24],
 });
 
