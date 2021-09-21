@@ -4,4 +4,4 @@ Student : `studentnaam`
 
 Klas    : `klascode`
 
-Link    : [hayder16.github.io/Challenge-BNB/]()
+Link    : [github_username.github.io](hayder16.github.io/Challenge-BNB/)
