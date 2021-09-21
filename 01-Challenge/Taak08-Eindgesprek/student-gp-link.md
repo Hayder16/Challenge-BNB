@@ -4,4 +4,4 @@ Student : `studentnaam`
 
 Klas    : `klascode`
 
-Link    : [github_username.github.io](github_username.github.io)
+Link    : [github_username.github.io]()

@@ -1,18 +1,100 @@
 #mapid {
     margin-top: 20px;
-    height: 670px;
-    
+    height: 570px;
+    display: block;
+    position: relative;
+    border: 1px solid black;
+    box-sizing: border-box;
+    box-shadow: 2px 4px black;
+}
+
+.form-control {
+    margin-left: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: white;
+}
+::-webkit-scrollbar-track:hover {
+    background: #2A9D8F;
+}
+::-webkit-scrollbar-thumb {
+    background: black;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #E9C46A;
+}
+
+.fil {
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background: #F4A261;
+    box-sizing: border-box;
+    box-shadow: 2px 4px black;
+    transition: .4s;
+} .fil:hover {
+    background: #E76F51;
+}
+
+.re {
+    background: #F4A261;
+    border: 2px solid black;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 2px 4px black;
+    transition: 0.4s;
+} .re:hover {
+    background: #E76F51;
+}
+
+.submit {
+    margin-left: 15px;
+    background: white;
+    border: 3px solid #2A9D8F;
+    color: black;
+    padding: 7px 16px;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+.submit:hover {
+    background: #F4A261;
+    color: white;
+}
+
+.mL {margin-left: 20px;}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: white;
+    background-image: url(../images/imgimg.jpg);
+    margin-right: 30px;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .hihi {
     background: #E76F51;
     text-align: center;
-    border: 3px solid transparent;
+    border: 2px solid black;
     border-radius: 25px;
     color: white;
     box-sizing: border-box;
     box-shadow: 2px 4px black;
     padding: 18px;
+    transition: 0.4s;
 }
 
 .hihi:hover {
@@ -27,10 +109,11 @@
     color: white;
     text-align: center;
     text-decoration: none;
-    border: 3px solid transparent;
+    border: 1px solid black;
     border-radius: 25px;
     box-sizing: border-box;
     box-shadow: 2px 4px black;
+    transition: 0.4s;
 }
 
 .bana:hover {
@@ -43,11 +126,11 @@ h1 {
     text-align: center;
     margin: auto;
     width: 50%;
-    background: white;
+    background: black;
     border: 3px solid transparent;
-    border-radius: 25px;
+    border-radius: 50px;
     box-sizing: border-box;
-    box-shadow: 3px 6px #264653;
+    box-shadow: 4px 8px #264653;
     text-shadow: 1px 1px;
     padding: 10px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -55,6 +138,11 @@ h1 {
 
 h1:hover{
     background: #E9C46A;
+}
+
+.reload {
+    color: white;
+    text-decoration: none;
 }
 
 img {
@@ -79,29 +167,39 @@ main .right {
 }
 
 .right .filter-box .homes-box {
+    background: #F4A261;
+    margin-top: 10px;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    box-shadow: 3px 6px black;
     list-style: none;
+    transition: 0.4s;
+}
+.right .filter-box .homes-box:hover {
+    background: #E76F51;
 }
 
 footer {
     display: flex;
     position: static;
+    top: 1000px;
     bottom: 0px;
-    height: 100px;
-    width: 100%;
+    height: 50px;
+    max-width: 100%;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid blue;
+    border-top: 1px solid #87CEEB;
 }
 
 footer div {
-    width: 33%;
+    width: 100%;
     height: 20px;
 }
 
 .filter-box label{
-    width: 100px;
+    width: 100%;
     line-height: 1.8em;
 }
 
@@ -110,6 +208,35 @@ footer div {
 }
 
 .form-control label{
-    letter-spacing: 0.15em;
-
+    letter-spacing: 0em;
 }
+
+.forborder {
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.previ, .nextt {
+    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+

@@ -16,15 +16,15 @@ if (isset($_GET['filter_submit'])) {
     if ($_GET['faciliteiten'] == "ligbad") { // Als ligbad is geselecteerd filter dan de zoekresultaten
         $bathIsChecked = true;
 
-        $sql = "SELECT * FROM ligbad"; // query die zoekt of er een BAD aanwezig is.
+        $sql = "SELECT * FROM homes WHERE bath_present=1"; // query die zoekt of er een BAD aanwezig is.
     } 
 
     if ($_GET['faciliteiten'] == "zwembad") {
         $poolIsChecked = true;
 
-        $sql = "SELECT * FROM zwembad"; // query die zoekt of er een ZWEMBAD aanwezig is.
+        $sql = "SELECT * FROM homes WHERE pool_present=1"; // query die zoekt of er een ZWEMBAD aanwezig is.
     } 
-}
+} 
 
 
 if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een sql-query correct geschreven is en dus data ophaalt uit de DB
@@ -50,15 +50,18 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
 </head>
 
 <body>
+    <div class="bgi">
+    <div id="body">
     <header>
         <div class="banner">
-        <div class="naam"><h1>Demi's House Rentals</h1></div>
+        <div class="naam"><h1><a class="reload" href="index.php">Demi's House Rentals</a></h1></div>
         </div>
     </header>
     <main>
         <div class="left">
-            <div id="mapid"></div>
+            <div class="re">
             <div class="book">
+                <form action="" method="POST">
                 <h3>Reservering maken</h3>
                 <div class="form-control">
                     <label for="aantal_personen">Vakantiehuis</label>
@@ -69,7 +72,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                         <option value="4">Weustenrade Woning</option>
                     </select>
                 </div>
-                <div class="form-control">
+                <div class="form-control" method="post">
                     <label for="aantal_personen">Aantal personen</label>
                     <input type="number" name="aantal_personen" id="aantal_personen">
                 </div>
@@ -78,21 +81,47 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                     <input type="number" name="aantal_dagen" id="aantal_dagen">
                 </div>
                 <div class="form-control">
-                    <h5>Beddengoed</h5>
+                    <h4>Beddengoed</h4>
                     <label for="beddengoed_ja">Ja</label>
                     <input type="radio" id="beddengoed_ja" name="beddengoed" value="ja">
                     <label for="beddengoed_nee">Nee</label>
                     <input type="radio" id="beddengoed_nee" name="beddengoed" value="nee">
-                </div>
-                <button>Reserveer huis</button>
+                </div> 
+                <input class="submit" type="submit" value="reserveer huis" name="submit"></input>
+                <?php if (isset($database_gegevens) && $database_gegevens != null) : ?>
+                <?php foreach ($database_gegevens as $huisje) : ?>
+                <?php
+                    $gekozen = [1 => 55.00, 2 => 155.00, 3 => 300.00, 4 => 75.00];
+                    $beddenprijs = [1 => 10.00, 2 => 0.00, 3 => 0.00, 4 => 0.00];
+                    if(isset($_POST['aantal_dagen']) && $_POST['aantal_personen'] != null) {
+                        $aantal_dagen = $_POST['aantal_dagen'];
+                        $aantal_personen = $_POST['aantal_personen'];
+                        $gekozenhuis = $_POST['gekozen_huis'];
+                        $nummerhuis = $gekozen[$gekozenhuis];
+                        $bedden = $beddenprijs[$gekozenhuis];
+                    }
+                ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
             </div>
             <div class="currentBooking">
                 <div class="bookedHome"></div>
-                <div class="totalPriceBlock">Totale prijs &euro;<span class="totalPrice">0.00</span></div>
+            <div class="totalPriceBlock"><div class="mL">Totale prijs &euro;<span class="totalPrice"><?php if(isset($_POST['submit'])){
+                if(isset($_POST['beddengoed']) && $_POST['beddengoed'] == "ja"){
+                    echo $all = ($nummerhuis * $aantal_dagen) * $aantal_personen + $bedden;
+                } elseif (isset($_POST['beddengoed']) && $_POST['beddengoed'] == "nee") {
+                    echo $totaal = ($nummerhuis * $aantal_dagen) * $aantal_personen;
+                } else {
+                    echo "";
+                }
+            } ?></div></span></div>
             </div>
+            </div>
+        </form>
         </div>
         <div class="right">
             <div class="filter-box">
+                <div class="fil">
                 <form class="filter-form">
                     <div class="form-control">
                         <a class="bana" href="index.php">Reset Filters</a>
@@ -107,6 +136,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                     </div>
                     <button class="hihi" type="submit" name="filter_submit">Filter</button>
                 </form>
+                </div>
                 <div class="homes-box">
                     <?php if (isset($database_gegevens) && $database_gegevens != null) : ?>
                         <?php foreach ($database_gegevens as $huisje) : ?>
@@ -115,10 +145,12 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                             </h4>
 
                             <p>
-                                <?php echo $huisje['description'] ?>
+                                <?php echo $huisje['description'] ?><br>
+                                <?php echo $huisje['image'] ?>
+                                
                             </p>
                             <div class="kenmerken">
-                                <h6>Kenmerken</h6>
+                                <h5>Kenmerken</h5>
                                 <ul>
 
                                     <?php
@@ -145,12 +177,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
             </div>
         </div>
     </main>
-    <footer>
-        <div></div>
-        <div><h3>copyright Demi's House Rentals BV.</h3></div>
-        <div></div>
-
-    </footer>
+    <div id="mapid"></div>
     <script src="js/map_init.js"></script>
     <script>
         // De verschillende markers moeten geplaatst worden. Vul de longitudes en latitudes uit de database hierin
@@ -171,6 +198,8 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
         ];
     </script>
     <script src="js/place_markers.js"></script>
+    </div>
+    </div>
 </body>
 
 </html>
